@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Calendar as CalIcon, MapPin, Clock } from "lucide-react";
 import { useRouter } from "next/navigation";
 import confetti from "canvas-confetti";
+import { sendTelegramNotification } from "../actions/telegram";
 
 export default function Planner() {
   const router = useRouter();
@@ -12,23 +13,16 @@ export default function Planner() {
   const [place, setPlace] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [isConfirming, setIsConfirming] = useState(false);
 
   const places = ["কফি ☕", "রেস্টুরেন্ট 🍽️", "লং ড্রাইভ 🚗", "সিনেমা 🍿", "সমুদ্র 🌊", "পাহাড় ⛰️", "শপিং 🛍️", "তোমার সাথে যেকোনো জায়গায় ❤️"];
 
-  const confirmDate = () => {
+  const confirmDate = async () => {
+    setIsConfirming(true);
+    await sendTelegramNotification(place, date, time);
+    setIsConfirming(false);
     confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
     setStep(3);
-  };
-
-  const sendWhatsApp = () => {
-    // IMPORTANT: Replace "8801XXXXXXXXX" with your actual WhatsApp phone number.
-    // Make sure to include the country code (e.g., 880 for Bangladesh) but NO '+' or spaces.
-    const phoneNumber = "8801XXXXXXXXX"; 
-    
-    const message = `Hey! ❤️ চলো একটা ডেটে যাই!\n\nস্থান: ${place}\nতারিখ: ${date}\nসময়: ${time}\n\nঅপেক্ষা করতে পারছি না! 🥰`;
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    
-    window.open(url, '_blank');
   };
 
   return (
@@ -76,10 +70,14 @@ export default function Planner() {
 
             <button 
               onClick={confirmDate}
-              disabled={!date || !time}
-              className="mt-4 bg-blue-500 disabled:bg-gray-300 text-white font-bold py-4 rounded-full shadow-lg"
+              disabled={!date || !time || isConfirming}
+              className="mt-4 bg-blue-500 disabled:bg-gray-300 text-white font-bold py-4 rounded-full shadow-lg flex justify-center items-center gap-2"
             >
-              নিশ্চিত করো
+              {isConfirming ? (
+                <span className="animate-pulse">একটু অপেক্ষা করো...</span>
+              ) : (
+                "নিশ্চিত করো"
+              )}
             </button>
           </motion.div>
         )}
@@ -98,13 +96,6 @@ export default function Planner() {
             <p className="text-sm text-romantic-text/80 font-semibold italic mt-4">
               "তুমি ধারণাও করতে পারবে না, আমি এই দিনটার জন্য কতটা অপেক্ষা করব। ❤️"
             </p>
-
-            <button 
-              onClick={sendWhatsApp}
-              className="mt-6 bg-[#25D366] text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center gap-2 hover:bg-[#128C7E] transition-colors"
-            >
-              স্বামীর কাছে মেসেজ পাঠাও 📱
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
