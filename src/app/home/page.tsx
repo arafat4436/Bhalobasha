@@ -11,9 +11,9 @@ export default function HomeDashboard() {
 
   useEffect(() => {
     const hour = new Date().getHours();
-    if (hour < 12) setGreeting("শুভ সকাল, আমার রোদ ☀️");
+    if (hour < 12) setGreeting("শুভ সকাল, ভালোবাসা ☀️");
     else if (hour < 18) setGreeting("শুভ দুপুর, সুন্দরী 🌸");
-    else setGreeting("শুভ সন্ধ্যা, আমার প্রিয় মানুষ 🌙");
+    else setGreeting("শুভ সন্ধ্যা, আমার প্রিয় 🌙");
   }, []);
 
   const features = [
@@ -42,7 +42,7 @@ export default function HomeDashboard() {
           <Heart size={100} />
         </motion.div>
         
-        <h1 className="font-bold text-2xl text-pink-600 z-10">{greeting}</h1>
+        <h1 className="font-bold text-xl text-pink-600 z-10 leading-tight">{greeting}</h1>
         <p className="text-sm text-romantic-text/80 z-10">আজকের মিশন: হাসো আর খুশি থাকো</p>
         
         <div className="flex justify-between items-end mt-4 z-10">
