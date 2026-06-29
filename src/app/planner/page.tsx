@@ -20,6 +20,17 @@ export default function Planner() {
     setStep(3);
   };
 
+  const sendWhatsApp = () => {
+    // IMPORTANT: Replace "8801XXXXXXXXX" with your actual WhatsApp phone number.
+    // Make sure to include the country code (e.g., 880 for Bangladesh) but NO '+' or spaces.
+    const phoneNumber = "8801XXXXXXXXX"; 
+    
+    const message = `Hey! ❤️ চলো একটা ডেটে যাই!\n\nস্থান: ${place}\nতারিখ: ${date}\nসময়: ${time}\n\nঅপেক্ষা করতে পারছি না! 🥰`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    window.open(url, '_blank');
+  };
+
   return (
     <div className="flex-1 p-6 flex flex-col">
       <button onClick={() => router.push("/home")} className="mb-6 p-2 bg-white/30 rounded-full w-fit">
@@ -87,6 +98,13 @@ export default function Planner() {
             <p className="text-sm text-romantic-text/80 font-semibold italic mt-4">
               "তুমি ধারণাও করতে পারবে না, আমি এই দিনটার জন্য কতটা অপেক্ষা করব। ❤️"
             </p>
+
+            <button 
+              onClick={sendWhatsApp}
+              className="mt-6 bg-[#25D366] text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center gap-2 hover:bg-[#128C7E] transition-colors"
+            >
+              স্বামীর কাছে মেসেজ পাঠাও 📱
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
