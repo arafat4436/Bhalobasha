@@ -16,6 +16,7 @@ export default function HomeDashboard() {
     else setGreeting("শুভ সন্ধ্যা, আমার প্রিয় 🌙");
   }, []);
 
+  const features = [
     { title: "তুমি কি আমাকে ভালোবাসবে?", icon: <Heart size={24} />, route: "/love", color: "text-red-500" },
     { title: "প্রথমে এটা পড়ো! 📖", icon: <BookOpen size={24} />, route: "/guide", color: "text-pink-500" },
     { title: "ঘুরাঘুরি প্ল্যানার", icon: <Calendar size={24} />, route: "/planner", color: "text-blue-500" },
