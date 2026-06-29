@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Heart, Calendar, Smile, ShieldAlert, Ticket, Quote, Gift, Activity, Trophy, Mail } from "lucide-react";
+import { Heart, Calendar, Smile, ShieldAlert, Ticket, Quote, Gift, Activity, Trophy, Mail, PenTool } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function HomeDashboard() {
@@ -27,6 +27,7 @@ export default function HomeDashboard() {
     { title: "গিফট বক্স", icon: <Gift size={24} />, route: "/gift", color: "text-indigo-500" },
     { title: "ড্যাশবোর্ড", icon: <Activity size={24} />, route: "/dashboard", color: "text-cyan-500" },
     { title: "অর্জনসমূহ", icon: <Trophy size={24} />, route: "/achievements", color: "text-amber-500" },
+    { title: "আমাকে চিঠি লেখো", icon: <PenTool size={24} />, route: "/write-letter", color: "text-rose-400" },
     { title: "খুলবে যখন...", icon: <Mail size={24} />, route: "/open-when", color: "text-rose-500" },
     { title: "শেষ চিঠি", icon: <Heart size={24} />, route: "/ending", color: "text-red-600" },
   ];
