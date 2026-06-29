@@ -16,9 +16,9 @@ export default function HomeDashboard() {
     else setGreeting("শুভ সন্ধ্যা, আমার প্রিয় 🌙");
   }, []);
 
-  const features = [
     { title: "তুমি কি আমাকে ভালোবাসবে?", icon: <Heart size={24} />, route: "/love", color: "text-red-500" },
     { title: "ঘুরাঘুরি প্ল্যানার", icon: <Calendar size={24} />, route: "/planner", color: "text-blue-500" },
+    { title: "আমাকে চিঠি লেখো", icon: <PenTool size={24} />, route: "/write-letter", color: "text-rose-400" },
     { title: "মুড ডিটেক্টর", icon: <Smile size={24} />, route: "/mood", color: "text-yellow-500" },
     { title: "আজকের আলিঙ্গন মিটার", icon: <Activity size={24} />, route: "/hug-meter", color: "text-green-500" },
     { title: "জরিমানা ক্যালকুলেটর", icon: <ShieldAlert size={24} />, route: "/fine-calculator", color: "text-purple-500" },
@@ -27,7 +27,6 @@ export default function HomeDashboard() {
     { title: "গিফট বক্স", icon: <Gift size={24} />, route: "/gift", color: "text-indigo-500" },
     { title: "ড্যাশবোর্ড", icon: <Activity size={24} />, route: "/dashboard", color: "text-cyan-500" },
     { title: "অর্জনসমূহ", icon: <Trophy size={24} />, route: "/achievements", color: "text-amber-500" },
-    { title: "আমাকে চিঠি লেখো", icon: <PenTool size={24} />, route: "/write-letter", color: "text-rose-400" },
     { title: "খুলবে যখন...", icon: <Mail size={24} />, route: "/open-when", color: "text-rose-500" },
     { title: "শেষ চিঠি", icon: <Heart size={24} />, route: "/ending", color: "text-red-600" },
   ];

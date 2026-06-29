@@ -91,7 +91,7 @@ export default function WriteLetter() {
             </div>
             <h2 className="text-3xl font-black text-rose-600">চিঠি পৌঁছে গেছে!</h2>
             <p className="text-romantic-text font-semibold">
-              তোমার সুন্দর কথাগুলো সরাসরি তার কাছে পাঠানো হয়েছে। সে নিশ্চয়ই খুব খুশি হবে! 🥰
+              তোমার কথাগুলো সরাসরি তার কাছে পাঠানো হয়েছে। সে নিশ্চয়ই খুব খুশি হবে! 🥰
             </p>
             <button 
               onClick={() => {
