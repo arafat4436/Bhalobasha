@@ -2,30 +2,22 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, MapPin, Calendar as CalendarIcon, Clock } from "lucide-react";
+import { ArrowLeft, Calendar as CalIcon, MapPin, Clock } from "lucide-react";
 import { useRouter } from "next/navigation";
+import confetti from "canvas-confetti";
 
 export default function Planner() {
   const router = useRouter();
   const [step, setStep] = useState(1);
-  const [data, setData] = useState({ place: "", date: "", time: "" });
+  const [place, setPlace] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
 
-  const places = [
-    "Coffee ☕", "Restaurant 🍽️", "Long Drive 🚗", 
-    "Movie 🍿", "Sea 🌊", "Hill ⛰️", 
-    "Shopping 🛍️", "Anywhere With You ❤️"
-  ];
+  const places = ["কফি ☕", "রেস্টুরেন্ট 🍽️", "লং ড্রাইভ 🚗", "সিনেমা 🍿", "সমুদ্র 🌊", "পাহাড় ⛰️", "শপিং 🛍️", "তোমার সাথে যেকোনো জায়গায় ❤️"];
 
-  const handlePlace = (p: string) => {
-    setData({ ...data, place: p });
-    setStep(2);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const confirmDate = () => {
+    confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
     setStep(3);
-    // In a real app, save to localStorage here
-    localStorage.setItem("ghuraghuri-plan", JSON.stringify(data));
   };
 
   return (
@@ -34,22 +26,20 @@ export default function Planner() {
         <ArrowLeft size={24} />
       </button>
 
-      <h1 className="text-2xl font-bold text-pink-600 mb-6 text-center">Ghuraghuri Planner 🗺️</h1>
+      <h1 className="text-2xl font-bold text-blue-600 mb-8 text-center flex justify-center items-center gap-2">
+        ঘুরাঘুরি প্ল্যানার 🗺️
+      </h1>
 
       <AnimatePresence mode="wait">
         {step === 1 && (
-          <motion.div
-            key="step1"
-            initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}
-            className="flex flex-col gap-4"
-          >
-            <h2 className="text-lg font-semibold text-center mb-2">Where do you want to go?</h2>
+          <motion.div key="step1" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} className="flex flex-col gap-4">
+            <h2 className="text-lg font-semibold mb-4 text-center">কোথায় যেতে চাও?</h2>
             <div className="grid grid-cols-2 gap-3">
-              {places.map(p => (
+              {places.map((p) => (
                 <button
                   key={p}
-                  onClick={() => handlePlace(p)}
-                  className="glass-card p-4 text-sm font-semibold hover:bg-pink-100 transition-colors"
+                  onClick={() => { setPlace(p); setStep(2); }}
+                  className="glass-card py-4 px-2 text-sm font-bold text-romantic-text hover:bg-blue-50 transition-colors"
                 >
                   {p}
                 </button>
@@ -59,57 +49,43 @@ export default function Planner() {
         )}
 
         {step === 2 && (
-          <motion.form
-            key="step2"
-            initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}
-            onSubmit={handleSubmit}
-            className="glass-card p-6 flex flex-col gap-6"
-          >
-            <div className="flex items-center gap-2 text-pink-600 bg-pink-50 p-3 rounded-lg">
-              <MapPin size={20} />
-              <span className="font-bold">{data.place}</span>
+          <motion.div key="step2" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} className="flex flex-col gap-6">
+            <h2 className="text-lg font-semibold text-center mb-2">কখন যাবো?</h2>
+            
+            <div className="glass-card p-6 flex flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-bold flex items-center gap-2"><CalIcon size={16}/> তারিখ</label>
+                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="p-3 rounded-xl bg-white/50 border border-white focus:outline-blue-400" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-bold flex items-center gap-2"><Clock size={16}/> সময়</label>
+                <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="p-3 rounded-xl bg-white/50 border border-white focus:outline-blue-400" />
+              </div>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold flex items-center gap-2"><CalendarIcon size={16}/> Date</label>
-              <input 
-                type="date" required
-                value={data.date} onChange={e => setData({...data, date: e.target.value})}
-                className="p-3 rounded-xl border border-pink-200 bg-white/50 focus:outline-none focus:ring-2 focus:ring-pink-400"
-              />
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold flex items-center gap-2"><Clock size={16}/> Time</label>
-              <input 
-                type="time" required
-                value={data.time} onChange={e => setData({...data, time: e.target.value})}
-                className="p-3 rounded-xl border border-pink-200 bg-white/50 focus:outline-none focus:ring-2 focus:ring-pink-400"
-              />
-            </div>
-
-            <button type="submit" className="bg-pink-500 text-white font-bold p-4 rounded-xl mt-4 hover:bg-pink-600 transition-colors">
-              Confirm Date
+            <button 
+              onClick={confirmDate}
+              disabled={!date || !time}
+              className="mt-4 bg-blue-500 disabled:bg-gray-300 text-white font-bold py-4 rounded-full shadow-lg"
+            >
+              নিশ্চিত করো
             </button>
-          </motion.form>
+          </motion.div>
         )}
 
         {step === 3 && (
-          <motion.div
-            key="step3"
-            initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-            className="flex flex-col items-center text-center gap-6 mt-10"
-          >
-            <div className="w-32 h-32 bg-white rounded-3xl shadow-xl flex flex-col overflow-hidden">
-              <div className="bg-red-500 h-10 w-full"></div>
-              <div className="flex-1 flex items-center justify-center text-4xl font-bold text-gray-800">
-                {data.date ? new Date(data.date).getDate() : "14"}
-              </div>
+          <motion.div key="step3" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center justify-center text-center gap-6 mt-10">
+            <div className="w-24 h-24 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center mb-4">
+              <CalIcon size={48} />
             </div>
-            
-            <h2 className="text-2xl font-bold text-pink-600">It's a Date!</h2>
-            <p className="text-lg text-romantic-text italic">
-              "I'll be waiting for this day more than you know. ❤️"
+            <h2 className="text-3xl font-black text-blue-600">এটা আমাদের ডেট!</h2>
+            <div className="glass-card p-6 w-full text-left space-y-3">
+              <p className="flex items-center gap-3 font-semibold"><MapPin size={20} className="text-blue-500"/> {place}</p>
+              <p className="flex items-center gap-3 font-semibold"><CalIcon size={20} className="text-blue-500"/> {date}</p>
+              <p className="flex items-center gap-3 font-semibold"><Clock size={20} className="text-blue-500"/> {time}</p>
+            </div>
+            <p className="text-sm text-romantic-text/80 font-semibold italic mt-4">
+              "তুমি ধারণাও করতে পারবে না, আমি এই দিনটার জন্য কতটা অপেক্ষা করব। ❤️"
             </p>
           </motion.div>
         )}

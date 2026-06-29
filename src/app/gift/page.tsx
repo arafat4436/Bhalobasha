@@ -12,11 +12,11 @@ export default function GiftBox() {
   const [reward, setReward] = useState<string | null>(null);
 
   const rewards = [
-    "💌 A Romantic Letter: You are my everything.",
-    "🤣 Funny Roast: You still snore, but I love you.",
-    "🎟️ Free Massage Coupon added to your wallet!",
-    "✨ You are officially the cutest person alive.",
-    "📸 Secret Memory unlocked!"
+    "💌 একটি ভালোবাসার চিঠি: তুমিই আমার সবকিছু।",
+    "🤣 মজার রোস্ট: তুমি এখনও নাক ডাকো, কিন্তু আমি তোমাকে ভালোবাসি।",
+    "🎟️ ফ্রি ম্যাসাজ কুপন তোমার ওয়ালেটে যোগ হয়েছে!",
+    "✨ তুমি আনুষ্ঠানিকভাবে পৃথিবীর সবচেয়ে কিউট মানুষ।",
+    "📸 একটি গোপন স্মৃতি উন্মুক্ত হলো!"
   ];
 
   const handleOpen = () => {
@@ -38,7 +38,7 @@ export default function GiftBox() {
         </button>
       </div>
 
-      <h1 className="text-2xl font-bold text-indigo-600 mb-12 absolute top-20">Daily Gift Box 🎁</h1>
+      <h1 className="text-2xl font-bold text-indigo-600 mb-12 absolute top-20">দৈনিক গিফট বক্স 🎁</h1>
 
       <AnimatePresence mode="wait">
         {!opened ? (
@@ -55,7 +55,7 @@ export default function GiftBox() {
               <div className="absolute h-8 w-full bg-indigo-300"></div>
               <GiftIcon size={80} className="text-white z-10" />
             </div>
-            <p className="font-bold text-indigo-600 animate-pulse">Tap to open!</p>
+            <p className="font-bold text-indigo-600 animate-pulse">খুলতে ট্যাপ করো!</p>
           </motion.div>
         ) : (
           <motion.div
@@ -65,7 +65,7 @@ export default function GiftBox() {
             className="glass-card p-8 flex flex-col items-center text-center gap-6 border-indigo-200"
           >
             <span className="text-5xl">✨</span>
-            <h2 className="text-xl font-bold text-indigo-600">Surprise!</h2>
+            <h2 className="text-xl font-bold text-indigo-600">সারপ্রাইজ!</h2>
             <p className="text-lg font-semibold text-romantic-text bg-indigo-50 p-4 rounded-xl border border-indigo-100">
               {reward}
             </p>
@@ -73,7 +73,7 @@ export default function GiftBox() {
               onClick={() => router.push("/home")}
               className="mt-4 bg-indigo-500 text-white px-8 py-3 rounded-full font-bold shadow-lg"
             >
-              Awesome!
+              দারুণ!
             </button>
           </motion.div>
         )}

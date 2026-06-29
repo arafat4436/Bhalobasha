@@ -8,11 +8,11 @@ export default function Achievements() {
   const router = useRouter();
 
   const achievements = [
-    { title: "Made Wife Smile", desc: "Opened the app today.", unlocked: true, icon: "😊" },
-    { title: "Forever Together", desc: "Successfully clicked the YES button.", unlocked: true, icon: "❤️" },
-    { title: "Master Planner", desc: "Planned a Ghuraghuri date.", unlocked: false, icon: "🗺️" },
-    { title: "Master Explorer", desc: "Found the secret page.", unlocked: false, icon: "🕵️‍♀️" },
-    { title: "Appreciated", desc: "Redeemed your first love coupon.", unlocked: false, icon: "🎟️" },
+    { title: "বউকে হাসিয়েছি", desc: "আজকে অ্যাপটি খুলেছো।", unlocked: true, icon: "😊" },
+    { title: "চিরকাল একসাথে", desc: "সফলভাবে হ্যাঁ বোতামটি ক্লিক করেছো।", unlocked: true, icon: "❤️" },
+    { title: "মাস্টার প্ল্যানার", desc: "একটি ঘুরাঘুরির ডেট প্ল্যান করেছো।", unlocked: false, icon: "🗺️" },
+    { title: "মাস্টার এক্সপ্লোরার", desc: "গোপন পেজটি খুঁজে পেয়েছো।", unlocked: false, icon: "🕵️‍♀️" },
+    { title: "মূল্যায়িত", desc: "তোমার প্রথম লাভ কুপনটি ব্যবহার করেছো।", unlocked: false, icon: "🎟️" },
   ];
 
   return (
@@ -22,7 +22,7 @@ export default function Achievements() {
       </button>
 
       <h1 className="text-2xl font-bold text-amber-600 mb-6 text-center flex justify-center items-center gap-2">
-        <Trophy /> Achievements
+        <Trophy /> অর্জনসমূহ
       </h1>
 
       <div className="flex flex-col gap-4">
@@ -39,7 +39,7 @@ export default function Achievements() {
             </div>
             
             <div className="flex-1">
-              <h3 className={`font-bold ${ach.unlocked ? 'text-amber-800' : 'text-gray-500'}`}>
+              <h3 className={`font-bold text-sm ${ach.unlocked ? 'text-amber-800' : 'text-gray-500'}`}>
                 {ach.title}
               </h3>
               <p className={`text-xs ${ach.unlocked ? 'text-amber-600/80' : 'text-gray-400'}`}>

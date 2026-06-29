@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import confetti from "canvas-confetti";
@@ -11,12 +11,12 @@ export default function Coupons() {
   const [redeemed, setRedeemed] = useState<number[]>([]);
 
   const coupons = [
-    { id: 1, title: "Free Hug", desc: "Redeemable at any time. No questions asked." },
-    { id: 2, title: "Movie Night", desc: "You pick the movie, I provide the popcorn." },
-    { id: 3, title: "Coffee Date", desc: "My treat. Let's go get your favorite coffee." },
-    { id: 4, title: "Breakfast Together", desc: "I'll make breakfast while you relax." },
-    { id: 5, title: "Unlimited Cuddles", desc: "Valid for one entire evening of cuddling." },
-    { id: 6, title: "Massage Coupon", desc: "Good for one 30-minute back/foot massage." },
+    { id: 1, title: "ফ্রি আলিঙ্গন", desc: "যেকোনো সময় ব্যবহারযোগ্য। কোনো প্রশ্ন করা হবে না।" },
+    { id: 2, title: "মুভি নাইট", desc: "তুমি মুভি পছন্দ করবে, আমি পপকর্ন আনব।" },
+    { id: 3, title: "কফি ডেট", desc: "আমার ট্রিট। চলো তোমার প্রিয় কফি খেয়ে আসি।" },
+    { id: 4, title: "একসাথে সকালের নাস্তা", desc: "তুমি আরাম করো, আমি নাস্তা বানাব।" },
+    { id: 5, title: "আনলিমিটেড আদর", desc: "একটি পুরো সন্ধ্যার আদরের জন্য বৈধ।" },
+    { id: 6, title: "ম্যাসাজ কুপন", desc: "একটি ৩০ মিনিটের ব্যাক বা ফুট ম্যাসাজের জন্য।" },
   ];
 
   const handleRedeem = (id: number) => {
@@ -35,7 +35,7 @@ export default function Coupons() {
         <ArrowLeft size={24} />
       </button>
 
-      <h1 className="text-2xl font-bold text-orange-600 mb-6 text-center">Love Coupons 🎟️</h1>
+      <h1 className="text-2xl font-bold text-orange-600 mb-6 text-center">লাভ কুপন 🎟️</h1>
 
       <div className="flex flex-col gap-4">
         {coupons.map((coupon, i) => {
@@ -57,7 +57,7 @@ export default function Coupons() {
                   disabled={isRedeemed}
                   className={`mt-4 py-2 font-bold rounded-lg uppercase tracking-wider text-sm transition-all ${isRedeemed ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-orange-500 text-white hover:bg-orange-600'}`}
                 >
-                  {isRedeemed ? "Redeemed" : "Redeem Now"}
+                  {isRedeemed ? "ব্যবহৃত" : "এখন ব্যবহার করো"}
                 </button>
               </div>
 

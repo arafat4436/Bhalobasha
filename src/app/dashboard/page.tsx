@@ -8,10 +8,10 @@ export default function Dashboard() {
   const router = useRouter();
 
   const metrics = [
-    { title: "Relationship Uptime", value: "99.99%", icon: <Clock size={20} className="text-cyan-500" /> },
-    { title: "Love Storage", value: "Unlimited TB", icon: <Heart size={20} className="text-red-500" /> },
-    { title: "Trust Level", value: "Maximum", icon: <CheckCircle size={20} className="text-green-500" /> },
-    { title: "Happiness Power", value: "100%", icon: <BatteryCharging size={20} className="text-yellow-500" /> },
+    { title: "রিলেশনশিপ আপটাইম", value: "৯৯.৯৯%", icon: <Clock size={20} className="text-cyan-500" /> },
+    { title: "লাভ স্টোরেজ", value: "আনলিমিটেড টিবি", icon: <Heart size={20} className="text-red-500" /> },
+    { title: "বিশ্বাসের মাত্রা", value: "সর্বোচ্চ", icon: <CheckCircle size={20} className="text-green-500" /> },
+    { title: "সুখের পরিমাণ", value: "১০০%", icon: <BatteryCharging size={20} className="text-yellow-500" /> },
   ];
 
   return (
@@ -21,7 +21,7 @@ export default function Dashboard() {
       </button>
 
       <h1 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-        Relationship System
+        রিলেশনশিপ সিস্টেম
       </h1>
 
       <div className="grid grid-cols-2 gap-4 mb-8">
@@ -36,7 +36,7 @@ export default function Dashboard() {
             <div className="flex justify-between items-center">
               {m.icon}
             </div>
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">{m.title}</p>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{m.title}</p>
             <p className="text-lg font-black text-slate-700">{m.value}</p>
           </motion.div>
         ))}
@@ -45,22 +45,22 @@ export default function Dashboard() {
       <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 mb-6">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
           <AlertTriangle size={16} className="text-amber-500" /> 
-          Bug Reports
+          বাগ রিপোর্ট
         </h2>
         <div className="flex justify-between items-center py-2 border-b border-slate-50">
-          <span className="font-semibold text-slate-600">Total Bugs Found</span>
-          <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">0 (Perfect)</span>
+          <span className="font-semibold text-slate-600 text-sm">মোট বাগ পাওয়া গেছে</span>
+          <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-[10px] font-bold">০ (নিখুঁত)</span>
         </div>
       </div>
 
       <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
           <CheckCircle size={16} className="text-blue-500" /> 
-          Known Issues
+          জ্ঞাত সমস্যা
         </h2>
         <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-          <p className="font-bold text-slate-700">Issue #001: Too Cute</p>
-          <p className="text-sm text-slate-500 mt-1">Status: Unresolvable. Will remain cute forever.</p>
+          <p className="font-bold text-slate-700 text-sm">সমস্যা #০০১: অতিরিক্ত কিউট</p>
+          <p className="text-xs text-slate-500 mt-1">স্ট্যাটাস: সমাধানযোগ্য নয়। চিরকাল কিউটই থাকবে।</p>
         </div>
       </div>
     </div>

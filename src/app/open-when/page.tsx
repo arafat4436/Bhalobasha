@@ -10,11 +10,11 @@ export default function OpenWhen() {
   const [openLetter, setOpenLetter] = useState<string | null>(null);
 
   const letters = [
-    { title: "Open when you're sad", content: "Hey beautiful, whatever is making you sad right now, just know that I am here for you. You are the strongest person I know. I love you.", locked: false },
-    { title: "Open when you miss me", content: "I miss you too! Close your eyes and imagine a big, warm hug. I'll be with you soon.", locked: false },
-    { title: "Open after an argument", content: "I'm sorry. We are a team, and our love is bigger than any argument. Let's make up and eat some good food.", locked: false },
-    { title: "Open on our anniversary", content: "Happy Anniversary my love! Every year gets better and better with you.", locked: true },
-    { title: "Open on your birthday", content: "Happy Birthday to the most amazing wife in the universe! You deserve everything.", locked: true },
+    { title: "খুলবে যখন তোমার মন খারাপ থাকবে", content: "ওহে সুন্দরী, যেই কারণেই তোমার মন খারাপ হোক না কেন, জেনে রেখো আমি তোমার পাশে আছি। তুমি আমার চেনা সবচেয়ে শক্তিশালী মানুষ। আমি তোমাকে ভালোবাসি।", locked: false },
+    { title: "খুলবে যখন তুমি আমাকে মিস করবে", content: "আমিও তোমাকে মিস করছি! চোখ বন্ধ করো আর একটা বিশাল, উষ্ণ আলিঙ্গনের কথা ভাবো। আমি খুব তাড়াতাড়ি তোমার কাছে আসছি।", locked: false },
+    { title: "খুলবে যখন আমাদের ঝগড়া হবে", content: "আমাকে মাফ করে দিও। আমরা একটা দল, এবং আমাদের ভালোবাসা যেকোনো ঝগড়ার চেয়ে অনেক বড়। চলো সব ভুলে গিয়ে একসাথে ভালো কিছু খাই।", locked: false },
+    { title: "খুলবে আমাদের বিবাহবার্ষিকীতে", content: "শুভ বিবাহবার্ষিকী আমার ভালোবাসা! তোমার সাথে প্রতিটি বছর আরও সুন্দর হয়ে উঠছে।", locked: true },
+    { title: "খুলবে তোমার জন্মদিনে", content: "মহাবিশ্বের সবচেয়ে আশ্চর্যজনক স্ত্রীকে শুভ জন্মদিন! তোমার সব ভালো কিছু প্রাপ্য।", locked: true },
   ];
 
   return (
@@ -23,7 +23,7 @@ export default function OpenWhen() {
         <ArrowLeft size={24} />
       </button>
 
-      <h1 className="text-2xl font-bold text-rose-600 mb-6 text-center relative z-10">Open When... 💌</h1>
+      <h1 className="text-2xl font-bold text-rose-600 mb-6 text-center relative z-10">খুলবে যখন... 💌</h1>
 
       <div className="grid grid-cols-1 gap-4 relative z-10">
         {letters.map((letter, i) => (
@@ -35,8 +35,8 @@ export default function OpenWhen() {
             className={`p-5 rounded-2xl flex items-center justify-between border-2 ${letter.locked ? 'bg-gray-100 border-gray-200 cursor-not-allowed opacity-70' : 'bg-rose-50 border-rose-200 cursor-pointer shadow-sm hover:shadow-md'}`}
           >
             <div className="flex items-center gap-3">
-              <Mail size={20} className={letter.locked ? "text-gray-400" : "text-rose-500"} />
-              <span className={`font-semibold ${letter.locked ? "text-gray-500" : "text-rose-700"}`}>
+              <Mail size={20} className={letter.locked ? "text-gray-400 min-w-[20px]" : "text-rose-500 min-w-[20px]"} />
+              <span className={`font-semibold text-sm ${letter.locked ? "text-gray-500" : "text-rose-700"}`}>
                 {letter.title}
               </span>
             </div>
@@ -63,13 +63,13 @@ export default function OpenWhen() {
                 {openLetter}
               </p>
               <div className="mt-8 text-right font-bold text-slate-800">
-                - Forever Yours
+                - চিরকাল তোমারই
               </div>
               <button 
                 onClick={() => setOpenLetter(null)}
                 className="mt-8 bg-slate-800 text-white px-6 py-2 rounded-full font-bold w-full"
               >
-                Put back in envelope
+                আবার খামে ভরে রাখো
               </button>
             </div>
           </motion.div>

@@ -2,34 +2,33 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Heart, Calendar, Smile, ShieldAlert, Image as ImageIcon, Ticket, Quote, Gift, Activity, Trophy, Mail } from "lucide-react";
+import { Heart, Calendar, Smile, ShieldAlert, Ticket, Quote, Gift, Activity, Trophy, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function HomeDashboard() {
   const router = useRouter();
-  const [greeting, setGreeting] = useState("Good Morning Sunshine ☀️");
+  const [greeting, setGreeting] = useState("শুভ সকাল, আমার রোদ ☀️");
 
   useEffect(() => {
     const hour = new Date().getHours();
-    if (hour < 12) setGreeting("Good Morning Sunshine ☀️");
-    else if (hour < 18) setGreeting("Good Afternoon Beautiful 🌸");
-    else setGreeting("Good Evening My Favorite Person 🌙");
+    if (hour < 12) setGreeting("শুভ সকাল, আমার রোদ ☀️");
+    else if (hour < 18) setGreeting("শুভ দুপুর, সুন্দরী 🌸");
+    else setGreeting("শুভ সন্ধ্যা, আমার প্রিয় মানুষ 🌙");
   }, []);
 
   const features = [
-    { title: "Will You Love Me?", icon: <Heart size={24} />, route: "/love", color: "text-red-500" },
-    { title: "Ghuraghuri Planner", icon: <Calendar size={24} />, route: "/planner", color: "text-blue-500" },
-    { title: "Mood Detector", icon: <Smile size={24} />, route: "/mood", color: "text-yellow-500" },
-    { title: "Today's Hug Meter", icon: <Activity size={24} />, route: "/hug-meter", color: "text-green-500" },
-    { title: "Fine Calculator", icon: <ShieldAlert size={24} />, route: "/fine-calculator", color: "text-purple-500" },
-
-    { title: "Love Coupons", icon: <Ticket size={24} />, route: "/coupons", color: "text-orange-500" },
-    { title: "Daily Quotes", icon: <Quote size={24} />, route: "/quotes", color: "text-teal-500" },
-    { title: "Gift Box", icon: <Gift size={24} />, route: "/gift", color: "text-indigo-500" },
-    { title: "Dashboard", icon: <Activity size={24} />, route: "/dashboard", color: "text-cyan-500" },
-    { title: "Achievements", icon: <Trophy size={24} />, route: "/achievements", color: "text-amber-500" },
-    { title: "Open When...", icon: <Mail size={24} />, route: "/open-when", color: "text-rose-500" },
-    { title: "Final Letter", icon: <Heart size={24} />, route: "/ending", color: "text-red-600" },
+    { title: "তুমি কি আমাকে ভালোবাসবে?", icon: <Heart size={24} />, route: "/love", color: "text-red-500" },
+    { title: "ঘুরাঘুরি প্ল্যানার", icon: <Calendar size={24} />, route: "/planner", color: "text-blue-500" },
+    { title: "মুড ডিটেক্টর", icon: <Smile size={24} />, route: "/mood", color: "text-yellow-500" },
+    { title: "আজকের আলিঙ্গন মিটার", icon: <Activity size={24} />, route: "/hug-meter", color: "text-green-500" },
+    { title: "জরিমানা ক্যালকুলেটর", icon: <ShieldAlert size={24} />, route: "/fine-calculator", color: "text-purple-500" },
+    { title: "লাভ কুপন", icon: <Ticket size={24} />, route: "/coupons", color: "text-orange-500" },
+    { title: "প্রতিদিনের উক্তি", icon: <Quote size={24} />, route: "/quotes", color: "text-teal-500" },
+    { title: "গিফট বক্স", icon: <Gift size={24} />, route: "/gift", color: "text-indigo-500" },
+    { title: "ড্যাশবোর্ড", icon: <Activity size={24} />, route: "/dashboard", color: "text-cyan-500" },
+    { title: "অর্জনসমূহ", icon: <Trophy size={24} />, route: "/achievements", color: "text-amber-500" },
+    { title: "খুলবে যখন...", icon: <Mail size={24} />, route: "/open-when", color: "text-rose-500" },
+    { title: "শেষ চিঠি", icon: <Heart size={24} />, route: "/ending", color: "text-red-600" },
   ];
 
   return (
@@ -44,16 +43,16 @@ export default function HomeDashboard() {
         </motion.div>
         
         <h1 className="font-bold text-2xl text-pink-600 z-10">{greeting}</h1>
-        <p className="text-sm text-romantic-text/80 z-10">Today&apos;s Mission: Smile & Be Happy</p>
+        <p className="text-sm text-romantic-text/80 z-10">আজকের মিশন: হাসো আর খুশি থাকো</p>
         
         <div className="flex justify-between items-end mt-4 z-10">
           <div>
-            <p className="text-xs text-romantic-text/60 uppercase font-bold tracking-wider">Status</p>
-            <p className="font-bold text-lg">In Love ❤️</p>
+            <p className="text-xs text-romantic-text/60 uppercase font-bold tracking-wider">স্ট্যাটাস</p>
+            <p className="font-bold text-lg">ভালোবাসায় আবদ্ধ ❤️</p>
           </div>
           <div className="text-right">
-            <p className="text-xs text-romantic-text/60 uppercase font-bold tracking-wider">Love Level</p>
-            <p className="font-bold text-2xl text-pink-500">100%</p>
+            <p className="text-xs text-romantic-text/60 uppercase font-bold tracking-wider">ভালোবাসার মাত্রা</p>
+            <p className="font-bold text-2xl text-pink-500">১০০%</p>
           </div>
         </div>
       </header>

@@ -10,11 +10,11 @@ export default function MoodChecker() {
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
 
   const moods = [
-    { emoji: "😄", label: "Happy", response: "Yay! Seeing you happy is my favorite thing in the world! Keep glowing! ✨" },
-    { emoji: "😢", label: "Sad", response: "Oh no! Sending you 1,000 virtual hugs! I'm always here for you, my love. 🫂❤️" },
-    { emoji: "😠", label: "Angry", response: "Loading...\nDeploying Emergency Husband...\nEstimated Arrival: ASAP ❤️🏃‍♂️💨" },
-    { emoji: "😴", label: "Sleepy", response: "Time to tuck you in! Go get some rest, beautiful. Sweet dreams! 🛌🌙" },
-    { emoji: "🤩", label: "Excited", response: "I love your energy! Let's do something fun together to celebrate! 🎉" },
+    { emoji: "😄", label: "খুশি", response: "ইয়ে! তোমাকে খুশি দেখতে পারাই আমার সবচেয়ে প্রিয় কাজ! সবসময় এভাবেই হাসতে থেকো! ✨" },
+    { emoji: "😢", label: "মন খারাপ", response: "ওহ না! তোমাকে ১,০০০ টা ভার্চুয়াল আলিঙ্গন পাঠাচ্ছি! আমি সবসময় তোমার পাশেই আছি, ভালোবাসা। 🫂❤️" },
+    { emoji: "😠", label: "রাগী", response: "লোড হচ্ছে...\nজরুরী স্বামী পাঠানো হচ্ছে...\nখুব তাড়াতাড়ি পৌঁছে যাব! ❤️🏃‍♂️💨" },
+    { emoji: "😴", label: "ঘুম ঘুম", response: "ঘুমানোর সময় হয়ে গেছে! গিয়ে বিশ্রাম নাও, সুন্দরী। মিষ্টি স্বপ্ন! 🛌🌙" },
+    { emoji: "🤩", label: "উত্তেজিত", response: "আমি তোমার এই এনার্জি খুব ভালোবাসি! চলো একসাথে মজার কিছু করি! 🎉" },
   ];
 
   return (
@@ -23,8 +23,8 @@ export default function MoodChecker() {
         <ArrowLeft size={24} />
       </button>
 
-      <h1 className="text-2xl font-bold text-pink-600 mb-2 text-center">Mood Detector 📡</h1>
-      <p className="text-center text-sm text-romantic-text/80 mb-8">How is my beautiful wife feeling today?</p>
+      <h1 className="text-2xl font-bold text-pink-600 mb-2 text-center">মুড ডিটেক্টর 📡</h1>
+      <p className="text-center text-sm text-romantic-text/80 mb-8">আমার সুন্দরী স্ত্রীর আজ কেমন লাগছে?</p>
 
       <div className="grid grid-cols-2 gap-4">
         {moods.map(mood => (
@@ -64,7 +64,7 @@ export default function MoodChecker() {
                 onClick={() => setSelectedMood(null)}
                 className="mt-4 bg-pink-500 text-white px-6 py-2 rounded-full font-bold"
               >
-                Close
+                বন্ধ করো
               </button>
             </motion.div>
           </motion.div>

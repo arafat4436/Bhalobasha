@@ -55,13 +55,13 @@ export default function Ending() {
             {stage >= 3 && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
                 <p className="text-slate-800 text-xl leading-[28px] pt-1" style={{ fontFamily: "'Dancing Script', cursive, sans-serif" }}>
-                  To my beautiful wife,<br/><br/>
-                  Thank you for exploring our little world. Everything I built here is just a tiny reflection of how much you mean to me.<br/><br/>
-                  You are my happiness, my peace, and my favorite adventure.<br/><br/>
-                  I love you.<br/><br/>
+                  আমার সুন্দরী স্ত্রীর প্রতি,<br/><br/>
+                  আমাদের ছোট্ট জগতটি ঘুরে দেখার জন্য তোমাকে ধন্যবাদ। এখানে আমি যা কিছু বানিয়েছি, তা আমার জীবনে তোমার গুরুত্বের খুব সামান্য একটা প্রতিফলন মাত্র।<br/><br/>
+                  তুমিই আমার সুখ, তুমিই আমার শান্তি, এবং তুমিই আমার সবচেয়ে প্রিয় অ্যাডভেঞ্চার।<br/><br/>
+                  আমি তোমাকে ভালোবাসি।<br/><br/>
                 </p>
                 <div className="text-right font-bold text-slate-800 mt-4 flex items-center justify-end gap-2">
-                  Forever Yours <Heart size={16} className="text-red-500 fill-red-500" />
+                  চিরকাল তোমারই <Heart size={16} className="text-red-500 fill-red-500" />
                 </div>
               </motion.div>
             )}
@@ -75,7 +75,7 @@ export default function Ending() {
           onClick={() => router.push("/home")}
           className="absolute bottom-8 bg-white/10 text-white/50 px-6 py-2 rounded-full hover:bg-white/20 transition-colors"
         >
-          Return Home
+          হোমে ফিরে যাও
         </motion.button>
       )}
     </div>

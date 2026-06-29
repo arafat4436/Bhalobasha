@@ -10,16 +10,16 @@ export default function DailyQuotes() {
   const [quote, setQuote] = useState("");
 
   const quotes = [
-    "You're my favorite notification. 📱",
-    "Home is wherever you're standing. 🏡",
-    "I'd still choose you in every lifetime. ✨",
-    "Best decision ever: Marrying you. 💍",
-    "You are my today and all of my tomorrows. ❤️",
-    "I love you more than pizza. And that's saying a lot. 🍕",
-    "Every love story is beautiful, but ours is my favorite. 📖",
-    "I fall for you more and more every day. 🥰",
-    "You are the peanut butter to my jelly. 🥜",
-    "Together with you is my favorite place to be. 🌍"
+    "তুমি আমার সবচেয়ে প্রিয় নোটিফিকেশন। 📱",
+    "যেখানে তুমি আছো, সেটাই আমার কাছে বাড়ি। 🏡",
+    "আমি প্রতিটা জন্মেই শুধু তোমাকেই বেছে নেব। ✨",
+    "আমার জীবনের সেরা সিদ্ধান্ত: তোমাকে বিয়ে করা। 💍",
+    "তুমি আমার আজকের দিন এবং আগামী সব আগামীকাল। ❤️",
+    "আমি তোমাকে পিজ্জার চেয়েও বেশি ভালোবাসি। আর এটা অনেক বড় একটা কথা। 🍕",
+    "প্রতিটা প্রেমের গল্পই সুন্দর, তবে আমাদের গল্পটা আমার সবচেয়ে প্রিয়। 📖",
+    "আমি প্রতিদিন তোমার প্রেমে আরও বেশি করে পড়ি। 🥰",
+    "তুমি আর আমি যেন মেড ফর ইচ আদার। 🥜",
+    "তোমার সাথে থাকাই আমার সবচেয়ে প্রিয় জায়গা। 🌍"
   ];
 
   useEffect(() => {
@@ -44,15 +44,15 @@ export default function DailyQuotes() {
         <QuoteIcon size={60} className="text-teal-200 absolute -top-4 -left-4 opacity-50 rotate-180" />
         <QuoteIcon size={60} className="text-teal-200 absolute -bottom-4 -right-4 opacity-50" />
 
-        <h2 className="text-xs uppercase font-bold tracking-widest text-teal-600 mb-4">Daily Love Quote</h2>
+        <h2 className="text-xs uppercase font-bold tracking-widest text-teal-600 mb-4">আজকের উক্তি</h2>
         
         <p className="text-2xl font-bold text-teal-800 leading-relaxed italic z-10">
           "{quote}"
         </p>
 
         <div className="mt-8 bg-teal-50 border-teal-200 border p-3 rounded-xl w-full">
-          <p className="text-xs uppercase font-bold text-teal-500 mb-1">Marriage Update:</p>
-          <p className="font-bold text-teal-700">Best decision ever. ❤️</p>
+          <p className="text-xs uppercase font-bold text-teal-500 mb-1">বিয়ে আপডেট:</p>
+          <p className="font-bold text-teal-700">জীবনের সেরা সিদ্ধান্ত। ❤️</p>
         </div>
       </motion.div>
     </div>

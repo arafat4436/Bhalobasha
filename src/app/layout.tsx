@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Quicksand } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const font = Quicksand({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Our Little World ❤️",
-  description: "A magical place just for you.",
+  title: "আমাদের ছোট্ট জগত ❤️",
+  description: "A special place for my beautiful wife",
 };
 
 export default function RootLayout({
@@ -16,9 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${font.className} antialiased`}>
-        {/* Mobile Frame Container */}
-        <div className="w-full max-w-[430px] min-h-screen bg-romantic-cream/30 shadow-2xl relative overflow-hidden flex flex-col">
+      <body className={`${inter.className} bg-romantic-bg text-romantic-text min-h-screen flex justify-center items-center`}>
+        {/* Mobile container constraint for desktop viewing */}
+        <div className="w-full h-full max-w-[430px] sm:h-[90vh] sm:rounded-3xl sm:shadow-2xl overflow-hidden relative bg-gradient-to-br from-pink-100 to-rose-50 border-4 border-white/50 flex flex-col">
           {children}
         </div>
       </body>
