@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Heart, Calendar, Smile, ShieldAlert, Ticket, Quote, Gift, Activity, Trophy, Mail, PenTool } from "lucide-react";
+import { Heart, Calendar, Smile, ShieldAlert, Ticket, Quote, Gift, Activity, Trophy, Mail, PenTool, BookOpen } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function HomeDashboard() {
@@ -12,11 +12,12 @@ export default function HomeDashboard() {
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 12) setGreeting("শুভ সকাল, ভালোবাসা ☀️");
-    else if (hour < 18) setGreeting("শুভ দুপুর, সুন্দরী 🌸");
+    else if (hour < 18) setGreeting("শুভ দুপুর, রাজকুমারী 🌸");
     else setGreeting("শুভ সন্ধ্যা, আমার প্রিয় 🌙");
   }, []);
 
     { title: "তুমি কি আমাকে ভালোবাসবে?", icon: <Heart size={24} />, route: "/love", color: "text-red-500" },
+    { title: "প্রথমে এটা পড়ো! 📖", icon: <BookOpen size={24} />, route: "/guide", color: "text-pink-500" },
     { title: "ঘুরাঘুরি প্ল্যানার", icon: <Calendar size={24} />, route: "/planner", color: "text-blue-500" },
     { title: "আমাকে চিঠি লেখো", icon: <PenTool size={24} />, route: "/write-letter", color: "text-rose-400" },
     { title: "মুড ডিটেক্টর", icon: <Smile size={24} />, route: "/mood", color: "text-yellow-500" },

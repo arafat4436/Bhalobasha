@@ -11,7 +11,7 @@ export default function SplashScreen() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoadingText("স্বাগতম, সুন্দরী ❤️");
+      setLoadingText("স্বাগতম, রাজকুমারী ❤️");
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
@@ -45,7 +45,7 @@ export default function SplashScreen() {
         </p>
       </motion.div>
 
-      {loadingText === "স্বাগতম, সুন্দরী ❤️" && (
+      {loadingText === "স্বাগতম, রাজকুমারী ❤️" && (
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}

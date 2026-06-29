@@ -55,7 +55,7 @@ export default function Ending() {
             {stage >= 3 && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
                 <p className="text-slate-800 text-xl leading-[28px] pt-1" style={{ fontFamily: "'Dancing Script', cursive, sans-serif" }}>
-                  আমার সুন্দরী স্ত্রীর প্রতি,<br/><br/>
+                  আমার রাজকুমারী স্ত্রীর প্রতি,<br/><br/>
                   আমাদের ছোট্ট জগতটি ঘুরে দেখার জন্য তোমাকে ধন্যবাদ। এখানে আমি যা কিছু বানিয়েছি, তা আমার জীবনে তোমার গুরুত্বের খুব সামান্য একটা প্রতিফলন মাত্র।<br/><br/>
                   তুমিই আমার সুখ, তুমিই আমার শান্তি, এবং তুমিই আমার সবচেয়ে প্রিয় অ্যাডভেঞ্চার।<br/><br/>
                   আমি তোমাকে ভালোবাসি।<br/><br/>

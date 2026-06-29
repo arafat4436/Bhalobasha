@@ -13,7 +13,7 @@ export default function MoodChecker() {
     { emoji: "😄", label: "খুশি", response: "ইয়ে! তোমাকে খুশি দেখতে পারাই আমার সবচেয়ে প্রিয় কাজ! সবসময় এভাবেই হাসতে থেকো! ✨" },
     { emoji: "😢", label: "মন খারাপ", response: "ওহ না! তোমাকে ১,০০০ টা ভার্চুয়াল আলিঙ্গন পাঠাচ্ছি! আমি সবসময় তোমার পাশেই আছি, ভালোবাসা। 🫂❤️" },
     { emoji: "😠", label: "রাগী", response: "লোড হচ্ছে...\nজরুরী স্বামী পাঠানো হচ্ছে...\nখুব তাড়াতাড়ি পৌঁছে যাব! ❤️🏃‍♂️💨" },
-    { emoji: "😴", label: "ঘুম ঘুম", response: "ঘুমানোর সময় হয়ে গেছে! গিয়ে বিশ্রাম নাও, সুন্দরী। মিষ্টি স্বপ্ন! 🛌🌙" },
+    { emoji: "😴", label: "ঘুম ঘুম", response: "ঘুমানোর সময় হয়ে গেছে! গিয়ে বিশ্রাম নাও, রাজকুমারী। মিষ্টি স্বপ্ন! 🛌🌙" },
     { emoji: "🤩", label: "উত্তেজিত", response: "আমি তোমার এই এনার্জি খুব ভালোবাসি! চলো একসাথে মজার কিছু করি! 🎉" },
   ];
 
@@ -24,7 +24,7 @@ export default function MoodChecker() {
       </button>
 
       <h1 className="text-2xl font-bold text-pink-600 mb-2 text-center">মুড ডিটেক্টর 📡</h1>
-      <p className="text-center text-sm text-romantic-text/80 mb-8">আমার সুন্দরী স্ত্রীর আজ কেমন লাগছে?</p>
+      <p className="text-center text-sm text-romantic-text/80 mb-8">আমার রাজকুমারী স্ত্রীর আজ কেমন লাগছে?</p>
 
       <div className="grid grid-cols-2 gap-4">
         {moods.map(mood => (
