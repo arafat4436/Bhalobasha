@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Calculator } from "lucide-react";
 import { useRouter } from "next/navigation";
 import confetti from "canvas-confetti";
+import { sendTelegramMessage } from "../actions/telegram";
 
 export default function FineCalculator() {
   const router = useRouter();
@@ -18,17 +19,31 @@ export default function FineCalculator() {
     cute: false
   });
 
-  const handleCalculate = () => {
+  const handleCalculate = async () => {
     setCalculating(true);
-    setTimeout(() => {
-      setCalculating(false);
-      setResult(true);
-      confetti({
-        particleCount: 150,
-        spread: 100,
-        origin: { y: 0.5 }
-      });
-    }, 2500);
+    
+    // Simulate thinking delay
+    await new Promise(r => setTimeout(r, 2500));
+    
+    // Prepare message based on selected crimes
+    const selectedCrimes = [];
+    if (crimes.ignored) selectedCrimes.push("আমার মেসেজ ইগনোর করেছো");
+    if (crimes.forgot) selectedCrimes.push("রিপ্লাই দিতে ভুলে গেছো");
+    if (crimes.waited) selectedCrimes.push("আমাকে অপেক্ষা করিয়েছো");
+    if (crimes.cute) selectedCrimes.push("অতিরিক্ত কিউট হয়ে আছো");
+
+    const crimeList = selectedCrimes.length > 0 ? selectedCrimes.join(", ") : "বিনা কারণে দুষ্টামি";
+    const telegramMessage = `🚨 *নতুন জরিমানা অ্যালার্ট!* 🚨\n\nতোমার স্ত্রী তোমাকে জরিমানা করেছে!\n\n📌 অপরাধ: ${crimeList}\n💰 জরিমানা: ২ আলিঙ্গন, ৪ চুমু, ১ আইসক্রিম\n\nতাড়াতাড়ি পরিশোধ করো! ⚖️`;
+
+    await sendTelegramMessage(telegramMessage);
+
+    setCalculating(false);
+    setResult(true);
+    confetti({
+      particleCount: 150,
+      spread: 100,
+      origin: { y: 0.5 }
+    });
   };
 
   return (
