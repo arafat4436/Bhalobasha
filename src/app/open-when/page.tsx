@@ -59,7 +59,7 @@ export default function OpenWhen() {
               style={{ backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #e8e0d5 28px)', backgroundAttachment: 'local' }}
               onClick={e => e.stopPropagation()}
             >
-              <p className="text-slate-800 text-lg leading-[28px] pt-1" style={{ fontFamily: "'Dancing Script', cursive, sans-serif" }}>
+              <p className="text-slate-800 text-lg leading-[28px] pt-1" style={{ fontFamily: "var(--font-patrick-hand), cursive, sans-serif" }}>
                 {openLetter}
               </p>
               <div className="mt-8 text-right font-bold text-slate-800">

@@ -122,7 +122,7 @@ export default function ReadReply() {
               <p className="text-xs font-bold text-rose-500 mb-4 uppercase tracking-wide">
                 তার উত্তর:
               </p>
-              <div className="text-romantic-text" style={{ fontFamily: "'Dancing Script', cursive, sans-serif", fontSize: "1.4rem", lineHeight: "1.8" }}>
+              <div className="text-romantic-text" style={{ fontFamily: "var(--font-patrick-hand), cursive, sans-serif", fontSize: "1.4rem", lineHeight: "1.8" }}>
                 আমার ভালোবাসা,<br/><br/>
                 {reply}<br/><br/>
                 - ইতি, তোমার স্বামী ❤️

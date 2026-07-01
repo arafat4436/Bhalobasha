@@ -61,7 +61,7 @@ export default function WriteLetter() {
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="আমি তোমাকে অনেক ভালোবাসি..."
                 className="flex-1 w-full bg-white/50 rounded-2xl p-4 text-romantic-text font-semibold focus:outline-none focus:ring-2 focus:ring-rose-300 resize-none"
-                style={{ fontFamily: "'Dancing Script', cursive, sans-serif", fontSize: "1.2rem", lineHeight: "1.8" }}
+                style={{ fontFamily: "var(--font-patrick-hand), cursive, sans-serif", fontSize: "1.2rem", lineHeight: "1.8" }}
               />
             </div>
 
