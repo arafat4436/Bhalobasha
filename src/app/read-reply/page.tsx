@@ -9,18 +9,10 @@ import { fetchLatestTelegramReply } from "../actions/telegram";
 
 export default function ReadReply() {
   const router = useRouter();
-  const [lastSentLetter, setLastSentLetter] = useState<string | null>(null);
+  const [contextLetter, setContextLetter] = useState<string | null>(null);
   const [reply, setReply] = useState<string | null>(null);
   const [isChecking, setIsChecking] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Check local storage for the last sent letter
-    const saved = localStorage.getItem("lastSentLetter");
-    if (saved) {
-      setLastSentLetter(saved);
-    }
-  }, []);
 
   const handleCheckReply = async () => {
     setIsChecking(true);
@@ -30,6 +22,7 @@ export default function ReadReply() {
       const response = await fetchLatestTelegramReply();
       if (response.success && response.text) {
         setReply(response.text);
+        if (response.context) setContextLetter(response.context);
         confetti({
           particleCount: 100,
           spread: 70,
@@ -59,7 +52,7 @@ export default function ReadReply() {
       <div className="flex-1 flex flex-col gap-6 overflow-y-auto pb-8">
         {/* Context Section (What she wrote) */}
         <AnimatePresence>
-          {lastSentLetter && (
+          {reply && contextLetter && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -69,15 +62,15 @@ export default function ReadReply() {
                 তুমি লিখেছিলে:
               </p>
               <p className="text-romantic-text font-semibold italic">
-                "{lastSentLetter}"
+                "{contextLetter}"
               </p>
             </motion.div>
           )}
         </AnimatePresence>
 
         {/* Down Arrow separator */}
-        {lastSentLetter && (
-          <div className="flex justify-center text-rose-300">
+        {reply && contextLetter && (
+          <div className="flex justify-center text-rose-300 my-2">
             <motion.div animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
               <ArrowLeft size={24} className="-rotate-90" />
             </motion.div>

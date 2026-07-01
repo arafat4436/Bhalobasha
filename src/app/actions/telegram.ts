@@ -58,15 +58,28 @@ export async function fetchLatestTelegramReply() {
       );
       
     if (husbandMessages.length === 0) {
-      return { success: false, text: null };
+      return { success: false, text: null, context: null };
     }
     
-    // Get the absolute latest message text
-    const latestMessage = husbandMessages[husbandMessages.length - 1].message.text;
+    // Get the absolute latest message
+    const latestUpdate = husbandMessages[husbandMessages.length - 1];
+    const latestMessage = latestUpdate.message.text;
     
-    return { success: true, text: latestMessage };
+    // If he replied to a specific message, grab what she said
+    let context = null;
+    if (latestUpdate.message.reply_to_message && latestUpdate.message.reply_to_message.text) {
+      // The bot's message usually looks like:
+      // "💌 *নতুন প্রেমের চিঠি!* 💌\n\nতোমার স্ত্রী তোমাকে একটি চিঠি পাঠিয়েছে:\n\n"Hello"\n\n- ইতি, তোমার ভালোবাসা ❤️"
+      // We can extract just the text she wrote, or just return the whole thing.
+      // Returning the raw text she wrote (between quotes) is cleaner.
+      const rawContext = latestUpdate.message.reply_to_message.text;
+      const match = rawContext.match(/"([^]+)"/);
+      context = match ? match[1] : rawContext;
+    }
+    
+    return { success: true, text: latestMessage, context: context };
   } catch (error) {
     console.error("Telegram Fetch Error:", error);
-    return { success: false, text: null };
+    return { success: false, text: null, context: null };
   }
 }
