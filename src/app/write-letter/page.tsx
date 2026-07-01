@@ -18,6 +18,9 @@ export default function WriteLetter() {
     
     setIsSending(true);
     
+    // Save to local storage for context
+    localStorage.setItem("lastSentLetter", message.trim());
+    
     const telegramMessage = `💌 *নতুন প্রেমের চিঠি!* 💌\n\nতোমার স্ত্রী তোমাকে একটি চিঠি পাঠিয়েছে:\n\n"${message.trim()}"\n\n- ইতি, তোমার ভালোবাসা ❤️`;
     
     await sendTelegramMessage(telegramMessage);

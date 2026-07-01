@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Heart, Calendar, Smile, ShieldAlert, Ticket, Quote, Gift, Activity, Trophy, Mail, PenTool, BookOpen } from "lucide-react";
+import { Heart, Calendar, Smile, ShieldAlert, Ticket, Quote, Gift, Activity, Trophy, Mail, PenTool, BookOpen, MailOpen } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function HomeDashboard() {
@@ -21,6 +21,7 @@ export default function HomeDashboard() {
     { title: "প্রথমে এটা পড়ো! 📖", icon: <BookOpen size={24} />, route: "/guide", color: "text-pink-500" },
     { title: "ঘুরাঘুরি প্ল্যানার", icon: <Calendar size={24} />, route: "/planner", color: "text-blue-500" },
     { title: "আমাকে চিঠি লেখো", icon: <PenTool size={24} />, route: "/write-letter", color: "text-rose-400" },
+    { title: "তার উত্তর 💌", icon: <MailOpen size={24} />, route: "/read-reply", color: "text-rose-600" },
     { title: "মুড ডিটেক্টর", icon: <Smile size={24} />, route: "/mood", color: "text-yellow-500" },
     { title: "আজকের আলিঙ্গন মিটার", icon: <Activity size={24} />, route: "/hug-meter", color: "text-green-500" },
     { title: "জরিমানা ক্যালকুলেটর", icon: <ShieldAlert size={24} />, route: "/fine-calculator", color: "text-purple-500" },
